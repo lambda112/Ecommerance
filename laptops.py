@@ -7,3 +7,9 @@ tree = HTMLParser(resp.content)
 def get_item_name():
     name = [i.attrs["title"] for i in tree.css("div div h4 > a")]
     return name
+
+def get_item_price():
+    price = [i.text() for i in tree.css("div div > h4:first-child")]
+    return price
+
+print(get_item_price())
