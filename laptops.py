@@ -16,3 +16,7 @@ def get_item_rating():
     rating = [i.attrs["data-rating"] for i in tree.css("div.ratings p + p")]
     return rating
 
+def get_amount_reviews():
+    review_amount = [i.text() for i in tree.css("div.ratings p:first-child")]
+    return review_amount
+
