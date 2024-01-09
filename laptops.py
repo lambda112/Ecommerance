@@ -12,4 +12,7 @@ def get_item_price():
     price = [i.text() for i in tree.css("div div > h4:first-child")]
     return price
 
-print(get_item_price())
+def get_item_rating():
+    rating = [i.attrs["data-rating"] for i in tree.css("div.ratings p + p")]
+    return rating
+
