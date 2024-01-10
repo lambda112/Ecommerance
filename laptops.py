@@ -1,4 +1,5 @@
 import requests as r 
+import pandas as pd
 from selectolax.parser import HTMLParser
 
 resp = r.get("https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops")
@@ -19,4 +20,18 @@ def get_item_rating():
 def get_amount_reviews():
     review_amount = [i.text() for i in tree.css("div.ratings p:first-child")]
     return review_amount
+
+def table():
+    item_info = {
+        "Item": get_item_name(),
+        "Price": get_item_price(),
+        "Rating": get_item_rating(),
+        "AmountOfReviews": get_amount_reviews()
+    }
+
+    table = pd.DataFrame(item_info).set_index("Item")
+    return table.to_excel("D:\Programming Python\Projects\WebScraper\Projects\Ecommerance\ItemTabel.xlsx",index=True)
+
+
+
 
