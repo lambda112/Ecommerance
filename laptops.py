@@ -32,6 +32,7 @@ def table():
     table = pd.DataFrame(item_info).set_index("Item")
     return table.to_excel("D:\Programming Python\Projects\WebScraper\Projects\Ecommerance\ItemTabel.xlsx",index=True)
 
+table()
 
 
 
