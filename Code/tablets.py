@@ -2,7 +2,7 @@ import requests as r
 import pandas as pd
 from selectolax.parser import HTMLParser
 
-resp = r.get("https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops")
+resp = r.get("https://webscraper.io/test-sites/e-commerce/allinone/computers/tablets")
 tree = HTMLParser(resp.content)
 
 def get_item_name():
@@ -30,9 +30,6 @@ def table():
     }
 
     table = pd.DataFrame(item_info).set_index("Item")
-    return table.to_excel("D:\Programming Python\Projects\WebScraper\Projects\Ecommerance\Laptops.xlsx",index=True)
+    return table.to_excel("Tablets.xlsx")
 
-
-
-
-
+table()
